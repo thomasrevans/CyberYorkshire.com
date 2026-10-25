@@ -11,10 +11,27 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
+      - name: 🔧 Normalize FTP server hostname
+        id: ftp_server
+        env:
+          FTP_SERVER_RAW: ${{ secrets.FTP_SERVER }}
+        run: |
+          server="${FTP_SERVER_RAW#*://}"
+          server="${server%%/*}"
+          server="${server%%:*}"
+          server="${server//[$'\r\n\t ']/}"
+
+          if [ -z "$server" ]; then
+            echo "FTP_SERVER secret resolves to an empty hostname." >&2
+            exit 1
+          fi
+
+          echo "server=$server" >> "$GITHUB_OUTPUT"
+
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ${{ steps.ftp_server.outputs.server }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./
