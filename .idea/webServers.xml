@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="24b03ac8-6390-4e92-91ae-f2f05b6310fd" name="CyberYorkshire" url="https://cyberyorkshire.com/">
+        <fileTransfer rootFolder="/home/wkeknrf3y94o/public_html" accessType="SFTP" host="92.205.100.186" port="22" sshConfigId="485166be-3cbb-4190-8bf0-d204b891e76e" sshConfig="wkeknrf3y94o@92.205.100.186:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
