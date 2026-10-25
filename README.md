@@ -20,6 +20,7 @@ This repository contains the initial 1st website route for **Cyber Yorkshire**, 
 ```
 CyberYorkshire.com/
 ├── index.html                   # Primary landing page route (https://cyberyorkshire.com/)
+├── cyber-yorkshire-advert.jpg   # Primary advert / launch flyer image for straightforward updates
 ├── favicon.ico                  # 32x32 pixel browser favicon
 ├── README.md                    # Project documentation & deployment guide
 └── assets/
@@ -28,12 +29,25 @@ CyberYorkshire.com/
     ├── js/
     │   └── main.js              # Navigation toggling, flyer lightbox, and interactive inquiry form
     └── images/
+        ├── cyber-yorkshire-advert.jpg # Copy of the advert image inside assets/images/
         ├── logo.png             # Master masked face emblem (square)
         ├── logo.webp            # High-performance web-optimized logo
         ├── flyer.png            # Master full-resolution launch flyer
         ├── flyer.webp           # Web-optimized flyer
         ├── flyer-display.webp   # Crisp preview flyer for instant page loading
         └── favicon-192.png      # 192x192 Web App / Android touch icon
+```
+
+---
+
+## 🖼️ Updating the Advert & Contact Info
+
+To update the advert displayed on the website, replace `cyber-yorkshire-advert.jpg` in the project root directory. The landing page references this expected file path directly so content updates are straightforward:
+
+```html
+<img src="cyber-yorkshire-advert.jpg" alt="Cyber Yorkshire advert" />
+<p>Email: <a href="mailto:contact@cyberyorkshire.com">contact@cyberyorkshire.com</a></p>
+<p>Phone: <a href="tel:07462193920">07462193920</a></p>
 ```
 
 ---
