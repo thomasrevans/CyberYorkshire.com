@@ -11,10 +11,33 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
+      - name: ✅ Validate FTP host
+        id: ftp-host
+        env:
+          RAW_FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          if [ -z "${RAW_FTP_SERVER}" ]; then
+            echo "::error::FTP_SERVER secret is empty."
+            exit 1
+          fi
+
+          SANITIZED_SERVER="${RAW_FTP_SERVER#ftp://}"
+          SANITIZED_SERVER="${SANITIZED_SERVER#ftps://}"
+          SANITIZED_SERVER="${SANITIZED_SERVER#sftp://}"
+          SANITIZED_SERVER="${SANITIZED_SERVER%%/*}"
+          SANITIZED_SERVER="${SANITIZED_SERVER%%:*}"
+
+          if [ -z "${SANITIZED_SERVER}" ]; then
+            echo "::error::FTP_SERVER must contain a valid hostname."
+            exit 1
+          fi
+
+          echo "server=${SANITIZED_SERVER}" >> "${GITHUB_OUTPUT}"
+
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ${{ steps.ftp-host.outputs.server }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./
