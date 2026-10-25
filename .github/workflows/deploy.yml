@@ -11,10 +11,15 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: 📂 Sync files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 📂 Sync files via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: 92.205.100.186
+          port: 22
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./
+          local_path: './'
+          remote_path: /home/wkeknrf3y94o/public_html
+          sftp_only: true
+          rsyncArgs: '--exclude=.git --exclude=.github --exclude=.idea --exclude=README.md'
+          sftpArgs: '-o ConnectTimeout=15'
