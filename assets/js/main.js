@@ -73,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm && successBox) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      const honeypot = document.getElementById('website');
+      if (honeypot && honeypot.value) {
+        return;
+      }
       
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
@@ -83,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         const nameVal = document.getElementById('inquiryName')?.value || 'Client';
         successBox.style.display = 'block';
-        successBox.innerHTML = '<strong>? Transmission Received</strong><br>Thank you, ' + encodeURIComponent(nameVal).replace(/%20/g, ' ') + '. Your inquiry has been routed to our Leeds principal security advisors. We will contact you shortly via <strong>07462193920</strong> or <strong>contact@cyberyorkshire.com</strong>.';
+        successBox.innerHTML = '<strong>? Transmission Received</strong><br>Thank you, ' + encodeURIComponent(nameVal).replace(/%20/g, ' ') + '. Your inquiry has been routed to our Leeds principal security advisors. We will contact you shortly via <strong>07700 900123</strong> or <strong>contact@cyberyorkshire.com</strong>.';
         
         contactForm.reset();
         submitBtn.innerHTML = originalText;

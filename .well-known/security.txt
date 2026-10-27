@@ -1,0 +1,5 @@
+# Live student portfolio and technical sandbox. Feedback on any security configurations is welcome.
+Contact: mailto:contact@cyberyorkshire.com
+Canonical: https://cyberyorkshire.com/.well-known/security.txt
+Preferred-Languages: en-GB
+Expires: 2027-10-27T00:00:00.000Z

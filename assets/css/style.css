@@ -91,6 +91,21 @@ img {
 .text-muted { color: var(--text-muted); }
 .font-mono { font-family: var(--font-mono); }
 
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.footer-disclaimer {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;

@@ -3,7 +3,7 @@
 **Cyber Yorkshire | Yorkshire Cyber Services & Advisors**  
 Live Route: [https://cyberyorkshire.com/](https://cyberyorkshire.com/)  
 Headquarters: Leeds, West Yorkshire, United Kingdom  
-Official Contact: [contact@cyberyorkshire.com](mailto:contact@cyberyorkshire.com) | Mobile: `07462193920`
+Official Contact: [contact@cyberyorkshire.com](mailto:contact@cyberyorkshire.com) | Mobile: `07700 900123`
 
 ---
 
@@ -47,7 +47,7 @@ To update the advert displayed on the website, replace `cyber-yorkshire-advert.j
 ```html
 <img src="cyber-yorkshire-advert.jpg" alt="Cyber Yorkshire advert" />
 <p>Email: <a href="mailto:contact@cyberyorkshire.com">contact@cyberyorkshire.com</a></p>
-<p>Phone: <a href="tel:07462193920">07462193920</a></p>
+<p>Phone: <a href="tel:+447700900123">07700 900123</a></p>
 ```
 
 ---
@@ -59,7 +59,7 @@ Directly aligned with the official Yorkshire Cyber Services brief:
 2. **Threat Hunting & Incident Response** - Hypothesis-driven adversary hunting, rapid breach triage, containment, and digital forensics.
 3. **Zero Trust & Cloud Security Architecture** - Identity-first access controls, micro-segmentation, and AWS / Azure / GCP posture hardening.
 4. **Risk Governance & Compliance** - Cyber Essentials / Plus, ISO 27001 readiness, UK GDPR safeguards, and executive boardroom risk reporting.
-5. **Enterprise Defense Strategy** - Virtual/Fractional CISO leadership, red-teaming simulations, threat modeling, and employee resilience training.
+5. **Enterprise Defence Strategy** - Virtual/Fractional CISO leadership, red-teaming simulations, threat modelling, and employee resilience training.
 
 ---
 
@@ -78,7 +78,7 @@ python -m http.server 8080
 ---
 
 ## 🔒 Contact & Advisory
-- **Mobile**: `07462193920`
+- **Mobile**: `07700 900123`
 - **Email**: `contact@cyberyorkshire.com`
 - **Location**: Leeds, United Kingdom
-- **Copyright**: © 2027 Cyber Yorkshire. All rights reserved.
+- **Copyright**: © 2026 Cyber Yorkshire. All rights reserved.
