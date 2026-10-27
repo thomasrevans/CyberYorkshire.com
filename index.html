@@ -487,7 +487,7 @@
           <p>Complete the form below for a confidential scoping discussion.</p>
         </div>
 
-        <form id="securityInquiryForm">
+        <form id="securityInquiryForm" action="send_mail.py" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label for="inquiryName">Full Name *</label>
@@ -502,6 +502,11 @@
           <div class="form-group">
             <label for="inquiryEmail">Company Email *</label>
             <input type="email" id="inquiryEmail" name="email" required maxlength="254" autocomplete="email" placeholder="name@yourcompany.com">
+          </div>
+
+          <div class="form-group">
+            <label for="inquiryOrganisation">Organisation</label>
+            <input type="text" id="inquiryOrganisation" name="organization" maxlength="150" autocomplete="organization" placeholder="Your organisation">
           </div>
 
           <div class="form-group">

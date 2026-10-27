@@ -20,6 +20,9 @@ This repository contains the initial 1st website route for **Cyber Yorkshire**, 
 ```
 CyberYorkshire.com/
 ├── index.html                   # Primary landing page route (https://cyberyorkshire.com/)
+├── .htaccess                    # Apache CGI configuration for Python
+├── send_mail.py                 # GoDaddy cPanel CGI consultation form mail endpoint
+├── security.txt                 # RFC 9116 security contact policy
 ├── cyber-yorkshire-advert.jpg   # Primary advert / launch flyer image for straightforward updates
 ├── favicon.ico                  # 32x32 pixel browser favicon
 ├── README.md                    # Project documentation & deployment guide
@@ -49,6 +52,8 @@ To update the advert displayed on the website, replace `cyber-yorkshire-advert.j
 <p>Email: <a href="mailto:contact@cyberyorkshire.com">contact@cyberyorkshire.com</a></p>
 <p>Phone: <a href="tel:+447700900123">07700 900123</a></p>
 ```
+
+The consultation form posts asynchronously to `send_mail.py`, which uses the hosting account's local SMTP relay and returns JSON responses. Run `python send_mail.py --local` for a local development server.
 
 ---
 

@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const successBox = document.getElementById('formSuccessMsg');
 
   if (contactForm && successBox) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const honeypot = document.getElementById('website');
@@ -84,18 +84,38 @@ document.addEventListener('DOMContentLoaded', () => {
       
       submitBtn.innerHTML = 'Encrypting & Transmitting...';
       submitBtn.disabled = true;
+      successBox.style.display = 'none';
+      successBox.textContent = '';
 
-      setTimeout(() => {
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+        const result = await response.json();
+
+        if (!response.ok || result.status !== 'success') {
+          throw new Error(result.message || 'The inquiry could not be sent.');
+        }
+
         const nameVal = document.getElementById('inquiryName')?.value || 'Client';
+        successBox.textContent = 'Transmission received. Thank you, ' + nameVal + '. Your inquiry has been securely routed to our Leeds principal security advisors.';
         successBox.style.display = 'block';
-        successBox.innerHTML = '<strong>? Transmission Received</strong><br>Thank you, ' + encodeURIComponent(nameVal).replace(/%20/g, ' ') + '. Your inquiry has been routed to our Leeds principal security advisors. We will contact you shortly via <strong>07700 900123</strong> or <strong>contact@cyberyorkshire.com</strong>.';
-        
         contactForm.reset();
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (error) {
+        const errorMessage = error instanceof Error && error.message && !error.message.includes('Unexpected')
+          ? error.message
+          : 'We could not send your inquiry. Please email contact@cyberyorkshire.com directly.';
+        successBox.textContent = errorMessage;
+        successBox.style.display = 'block';
+      } finally {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-
-        successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 700);
+      }
     });
   }
 
